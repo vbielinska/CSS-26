@@ -15,10 +15,11 @@ html {
 
 /* general */
 body {
-    margin: 0;
-    font-family: sans-serif;
-    background-color: #ffffff;
-    color: #222222;
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    font-size: 1.2rem;
+    background-color: #f4f4f4;
+    color: #292929;
 }
 
 /* header */
