@@ -1,3 +1,127 @@
 /* CSS-kokonaisharjoitus, osa 2 */
 
-/* Aloita CSS:n kirjoittaminen tämän kommentin alta. */
+/* Käytä yhdistelmä-, attribuutti- ja tilavalitsimia sekä ratkaise specificity-, periytymis- ja lähdejärjestysristiriidat ilman turhaa !importantia. */
+
+/* base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* general */
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #ffffff;
+    color: #222222;
+}
+
+/* header */
+.site-header {
+    background-color: #A9B18F;
+}
+
+.brand {
+    color: #222222;
+}
+
+/* navigation */
+.nav-list {
+    list-style-type: none;
+}
+
+.nav-list li:first-child {
+    font-weight: bold;
+}
+
+.nav-list a,
+.nav-list a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+    text-decoration: underline;
+}
+
+/* hero */
+.hero {
+    background-color: #F0B5B3;
+}
+
+.eyebrow {
+    color: #fe64a3;
+}
+
+.hero h1 {}
+
+.hero__lead {}
+
+/* buttons */
+.button {
+    background-color: #cb807d;
+    color: #FFF;
+}
+
+.button--primary {
+    background-color: #f6839c;
+    color: #FFF;
+}
+
+/* content section */
+.content-section {}
+
+.content-section h2 {}
+
+/* cards */
+.card-list {}
+
+.card {
+    background-color: #FFF;
+    border: 1px solid #CB807D;
+}
+
+.card--featured {
+    background-color: #F0B5B3;
+    border: 1px solid #CB807D;
+}
+
+.card--featured::before {
+    content: "Suositus";
+    color: #f6839c;
+    font-weight: bolder;
+}
+
+.card__badge {
+    color: #cb807d;
+}
+
+.card__title {}
+
+.card__text {}
+
+a[href^="#"] {
+    text-underline-offset:.2em;
+}
+
+/* help button */
+.help-button {
+    background-color: #fe64a3;
+    color: #FFF;
+    border: none;
+    width: 25px;
+    height: 25px;
+}
+
+/* footer */
+.site-footer {
+    background-color: #A9B18F;
+}
+
+/* responsive */
