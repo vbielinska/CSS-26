@@ -1,3 +1,49 @@
 /* CSS-kokonaisharjoitus, osa 1 */
 
-/* Aloita CSS:n kirjoittaminen tämän kommentin alta. */
+/* 	Liitä ulkoinen CSS-tiedosto, kirjoita sääntöjä ja käytä elementti-, class- ja id-valitsimia, värejä, yksiköitä, fontteja sekä perusreunoja. */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    font-size: 1.2rem;
+    background-color: #f4f4f4;
+    color: #292929;
+}
+
+
+.site-header,
+.site-footer {
+    background-color: #A9B18F;
+}
+
+.hero {
+    background-color: #F0B5B3;
+}
+
+.card {
+    background-color: #FFF;
+    border: 1px solid #CB807D;
+}
+
+.button {
+    background-color: #cb807d;
+    color: #FFF;
+}
+
+.help-button {
+    background-color: #fe64a3;
+    color: #FFF;
+    border: none;
+    width: 25px;
+    height: 25px;
+}
+
+#top {
+    border-bottom: 3px solid #fe64a3;
+}
