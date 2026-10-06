@@ -1,3 +1,211 @@
 /* CSS-kokonaisharjoitus, osa 6 */
 
-/* Aloita CSS:n kirjoittaminen tämän kommentin alta. */
+/* Rakenna yksiulotteisia komponentteja ja kohdistuksia flex-containerin, akselien, gapin ja flex-itemien avulla. */
+
+/* base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* general */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    font-size: 1rem;
+    background-color: #f4f4f4;
+    color: #292929;
+    width: 100%;
+}
+
+/* header */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #A9B18F;
+    padding: 2rem;
+}
+
+.brand {
+    color: #222222;
+}
+
+/* navigation */
+
+.skip-link  {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap:2rem;
+}
+
+
+.nav-list li:first-child {
+    font-weight: bold;
+}
+
+.nav-list a,
+.nav-list a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+    text-decoration: underline;
+}
+
+/* main */
+
+main {
+    flex: 1;
+}
+
+/* hero */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    text-align: center;
+    background-color: #F0B5B3;
+    padding: 4rem;
+}
+
+.eyebrow {
+    color: #fe64a3;
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    margin-bottom: 15px;
+}
+
+.hero__lead {
+    margin-bottom: 20px;
+}
+
+/* buttons */
+.button {
+    display: inline-block;
+    background-color: #cb807d;
+    color: #FFF;
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    margin-right: 10px;
+}
+
+.button--primary {
+    background-color: #f6839c;
+    color: #FFF;
+}
+
+a[href^="#"] {
+    text-decoration: none;
+}
+
+/* content section */
+.content-section {
+    padding: 2rem;
+}
+
+.content-section h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* cards */
+.card-list {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 2rem;
+    justify-content:center;
+
+}
+
+.card {
+    max-width:350px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background-color: #FFF;
+    border: 1px solid #CB807D;
+    border-radius: 15px;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+.card--featured {
+    background-color: #F0B5B3;
+    border: 1px solid #CB807D;
+}
+
+.card--featured::before {
+    content: "Suositus";
+    color: #f6839c;
+    font-weight: bolder;
+}
+
+.card__badge {
+    color: #cb807d;
+    margin-bottom: 0.5rem;
+}
+
+.card__title {
+    margin-bottom: 0.5rem;
+}
+
+.card__text {
+    overflow: auto;
+    margin-bottom: 1rem;
+}
+
+.card .button {
+    margin-top: auto;
+    align-self: flex-start;
+}
+/* help button */
+.help-button {
+    position: fixed;
+    z-index: 100;
+    bottom: 8rem;
+    right: 4rem;
+    background-color: #fe64a3;
+    color: #FFF;
+    border: none;
+    width: 25px;
+    height: 25px;
+    padding: 2px;
+}
+
+/* footer */
+.site-footer {
+    background-color: #A9B18F;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* responsive */
+
