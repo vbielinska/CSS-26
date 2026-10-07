@@ -20,7 +20,7 @@ body {
     flex-direction: column;
     font-family: Helvetica, Arial, sans-serif;
     line-height: 1.6;
-    font-size: 24px;
+    font-size: 1 rem;
     background-color: #f4f4f4;
     color: #292929;
     width: 100%;
@@ -171,7 +171,7 @@ a[href^="#"] {
 }
 
 .card {
-    max-width:500px;
+    max-width:400px;
     display: flex;
     flex-direction: column;
     padding: 30px;
