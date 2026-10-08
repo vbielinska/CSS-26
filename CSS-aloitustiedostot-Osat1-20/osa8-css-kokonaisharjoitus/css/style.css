@@ -10,7 +10,7 @@ html {
 
 /* general */
 
-body{
+body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -18,7 +18,7 @@ body{
 }
 
 body {
-    font-family: Helvetica,  Arial, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     line-height: 1.6;
     background-color: #f4f4f4;
     color: #292929;
@@ -35,28 +35,23 @@ body {
 .site-header {
     background-color: #A9B18F;
     padding: 1rem 2rem;
-    
+
 }
 
 .brand {
-   text-decoration: none;
-   font-weight: 800;
-   font-size:1.2rem;
-   color: #f4f4f4;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: #f4f4f4;
 }
 
-.brand:hover,
-.brand:focus {
-    text-decoration: underline;
-    text-underline-offset:0.3rem;
-}
 
 /* navigation */
 
 .skip-link {
     position: absolute;
     left: -10000px;
-    top:auto;
+    top: auto;
 }
 
 .skip-link:focus {
@@ -76,13 +71,13 @@ body {
 .nav-list a,
 .nav-list a:visited {
     text-decoration: none;
-    color:#f4f4f4;
+    color: #f4f4f4;
 }
 
 .nav-list a:hover,
 .nav-list a:focus {
     text-decoration: underline;
-    text-underline-offset:0.3rem;
+    text-underline-offset: 0.3rem;
 }
 
 /* main */
@@ -103,12 +98,12 @@ main {
 }
 
 .hero {
-    background-color:#F0B5B3;
+    background-color: #F0B5B3;
     padding: 2rem;
 }
 
 .eyebrow {
-    color:#fe64a3;
+    color: #fe64a3;
     margin-bottom: 0.5rem;
 }
 
@@ -173,12 +168,12 @@ main {
 
 .card--featured::before {
     content: "Suositus";
-    color:#fe64a3;
+    color: #fe64a3;
     font-weight: bold;
 }
 
 .card__badge {
-    margin-bottom: 1rem;    
+    margin-bottom: 1rem;
 }
 
 .card__title {
@@ -252,25 +247,25 @@ a[href^="#"] {
         justify-content: space-between;
     }
 
-      .nav-list {
+    .nav-list {
         flex-direction: row;
         gap: 2rem;
     }
 
-     .hero {
+    .hero {
         flex-direction: row;
         gap: 2rem;
         justify-content: space-between;
     }
 
     .left_column {
-       display: flex;
-       flex-direction: column;
-       align-items: flex-start;
-       text-align: justify;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: justify;
     }
 
-    .content-section{
+    .content-section {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -280,14 +275,13 @@ a[href^="#"] {
     .card-list {
         display: flex;
         flex-flow: row wrap;
-        justify-content: space-around;
+        justify-content: flex-start;
+        gap: 2rem;
+    }
+
+    .right_column {
+        display: flex;
+        justify-content: center;
     }
 
 }
-
-
-
-
-
-
-
