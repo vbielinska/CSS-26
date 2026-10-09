@@ -1,3 +1,306 @@
 /* CSS-kokonaisharjoitus, osa 9 */
 
-/* Aloita CSS:n kirjoittaminen tämän kommentin alta. */
+/* Rakenna saavutettava värijärjestelmä, taustakerroksia ja tarkoituksenmukaisia linear-, radial- tai conic-gradientteja. */
+
+:root {
+    --background: #F8F4F1;
+    --surface: #FFF;
+    --text: #202328;
+    --olive: #A0A58A;
+    --pink: #FF4F91;
+    --terracotta: #D88B84;
+    --soft-pink: #F9D9D5;
+    --secondary: #62656B;
+    --border: #DAD9D7;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* general */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #292929;
+}
+
+/* header */
+
+.site-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: #A9B18F;
+    padding: 1rem 2rem;
+}
+
+.brand {
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: #f4f4f4;
+}
+
+
+/* navigation */
+
+.skip-link {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+}
+
+.skip-link:focus {
+    position: static;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-list li:first-child {
+    font-weight: bold;
+}
+
+.nav-list a,
+.nav-list a:visited {
+    text-decoration: none;
+    color: #f4f4f4;
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+    text-decoration: underline;
+    text-underline-offset: 0.3rem;
+}
+
+/* main */
+
+main {
+    flex: 1;
+    width: 100%;
+}
+
+/* hero */
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+
+    background: linear-gradient(#F9D9D5, #F5C9C5);
+    padding: 2rem;
+}
+
+.eyebrow {
+    color: #fe64a3;
+    margin-bottom: 0.5rem;
+}
+
+.hero h1 {
+    margin-bottom: 0.5rem;
+}
+
+.hero__lead {
+    margin-bottom: 0.5rem;
+}
+
+.left_column,
+.right_column {
+    flex: 1;
+}
+
+.right_column img {
+    width: 310px;
+    height: 310px;
+    object-fit:cover;
+    object-position: 100% 100%;
+    border-radius: 50% 50% 12px 12px;
+}
+
+/*content section*/
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F8F4F1;
+}
+
+.content-section {
+    padding: 1rem 2rem;
+}
+
+.content-section h2 {
+    margin-bottom: 1rem;
+}
+
+/* cards */
+
+.card-list {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.card {
+    width: min(100% - 2rem, 300px);
+    height: auto;
+    border: 1px solid #CB807D;
+    border-radius: 15px;
+    padding: 1rem;
+    background-color: #FFF;
+}
+
+.card--featured {
+    background-color: #F0B5B3;
+    color: #f4f4f4;
+    background: radial-gradient(circle at bottom right, #FFF, #CB807D );
+}
+
+.card--featured::before {
+    content: "Suositus";
+    color: #fe64a3;
+    
+    font-weight: bold;
+}
+
+.card__badge {
+    margin-bottom: 1rem;
+}
+
+.card__title {
+    margin-bottom: 0.5rem;
+}
+
+.card__text {
+    overflow: auto;
+    margin-bottom: 1rem;
+}
+
+.card .button {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/* footer */
+
+.site-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.site-footer {
+    background-color: #A9B18F;
+    padding: 1rem 2rem;
+}
+
+/* help button */
+.help-button {
+    position: fixed;
+    z-index: 100;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #fe64a3;
+    color: #FFF;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+/* buttons */
+.button {
+    font-size: inherit;
+    display: inline-block;
+    background-color: #cb807d;
+    color: #FFF;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    margin-right: 10px;
+}
+
+.button--primary {
+    background-color: #f6839c;
+    color: #FFF;
+}
+
+a[href^="#"] {
+    text-decoration: none;
+}
+
+/* responsive */
+
+@media (min-width: 700px) {
+    .site-header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nav-list {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .hero {
+        flex-direction: row;
+        gap: 2rem;
+        justify-content: space-between;
+    }
+
+    .left_column {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: justify;
+    }
+
+    .content-section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 4rem;
+    }
+
+    .card-list {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        gap: 2rem;
+    }
+
+    .right_column {
+        display: flex;
+        justify-content: center;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
