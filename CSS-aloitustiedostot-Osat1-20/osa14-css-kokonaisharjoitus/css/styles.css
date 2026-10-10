@@ -1,10 +1,11 @@
-/* CSS-kokonaisharjoitus, osa 14 */
 
-/* Rakenna design tokenit custom propertyillä ja hyödynnä var(), calc(), min(), max() sekä clamp() joustavissa mitoissa. */
+/* CSS-kokonaisharjoitus, osa 14 */
+/* Design tokens, var(), calc(), min(), max() ja clamp() */
+
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&display=swap');
 
 
-/* general */
+/* 1. GENERAL */
 
 * {
     box-sizing: border-box;
@@ -12,23 +13,10 @@
     padding: 0;
 }
 
-body {
-    font-family: "Baloo Bhaijaan 2", Helvetica, Arial, sans-serif;
-    font-size: 1rem;
-    color: var(--color-text);
-    background-color: var(--color-background);
-    line-height: 1.5;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-
-/* design tokens */
-
 :root {
-
+    /* Colors */
     --color-background: #F8F4F1;
-    --color-surface: #FFF;
+    --color-surface: #FFFFFF;
     --color-text: #202328;
     --color-text-secondary: #62656B;
     --color-border: #DAD9D7;
@@ -37,50 +25,77 @@ body {
     --color-terracotta: #D88B84;
     --color-soft-pink: #F9D9D5;
 
-    --font-size-base: 16px;
+    /* Typography */
+    --font-size-base: 1rem;
 
+    /* Border radius */
     --card-radius: 10px;
     --large-section-radius: 16px;
     --button-radius: 999px;
 
+    /* Shadows */
     --card-shadow: 0 4px 18px rgba(32, 35, 40, 0.04);
     --button-shadow: 0 4px 12px rgba(255, 79, 145, 0.18);
     --help-button-shadow: 0 8px 24px rgba(255, 79, 145, 0.25);
 
+    /* Spacing */
     --space-s: 0.5rem;
-    /* 8px */
     --space-m: 1rem;
-    /* 16px */
     --space-l: 1.5rem;
-    /* 24px */
     --space-xl: 2rem;
-    /* 32px */
+    --space-xxl: 4rem;
+
+    /* Layout */
+    --content-max-width: 1200px;
+    --page-gutter: clamp(1rem, 4vw, 3rem);
 }
 
-/* typography */
+body {
+    font-family: "Baloo Bhaijaan 2", Helvetica, Arial, sans-serif;
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    background-color: var(--color-surface);
+    line-height: 1.5;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    font: inherit;
+}
+
+
+/* 2. TYPOGRAPHY */
 
 h1 {
+    max-width: 500px;
     font-size: clamp(2rem, 1.2rem + 2.5vw, 3.25rem);
     font-weight: 600;
+    line-height: 1.15;
 }
 
 h2 {
     font-size: clamp(1.75rem, 1.2rem + 1.5vw, 2.375rem);
     font-weight: 600;
+    line-height: 1.2;
 }
 
 h3 {
     font-size: clamp(1.25rem, 1rem + 0.6vw, 1.5rem);
     font-weight: 600;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-li {
-    list-style: none;
+    line-height: 1.3;
 }
 
 .brand {
@@ -89,159 +104,253 @@ li {
     color: var(--color-surface);
 }
 
-.nav-list {
-    color: var(--color-surface);
-    font-weight: bolder;
+.eyebrow {
+    color: var(--color-pink);
+    font-weight: 600;
 }
 
-button {
-    font: inherit;
+.hero-lead {
+    max-width: 390px;
+    color: var(--color-text-secondary);
 }
 
-/* header and navigation */
+
+/* 3. HEADER AND NAVIGATION */
+
 .site-header {
-    background-color: var(--color-olive);
     display: flex;
     flex-flow: column;
     align-items: center;
     justify-content: center;
-    min-height: 60px;
     gap: var(--space-s);
-    padding: var(--space-s);
+    min-height: 60px;
+    padding: var(--space-m) var(--page-gutter);
+    background-color: var(--color-olive);
 }
-
 
 .nav-list {
     display: flex;
-    flex-flow: row nowrap;
-    gap: var(--space-l);
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: var(--space-s) var(--space-l);
+    color: var(--color-surface);
+    font-weight: 700;
 }
 
 .skip-link {
     position: absolute;
+    top: 0;
     left: -10000px;
-    top: auto;
+    z-index: 200;
+    padding: var(--space-s) var(--space-m);
+    background-color: var(--color-surface);
+    color: var(--color-text);
 }
 
-/* hero */
+.skip-link:focus {
+    position: fixed;
+    top: var(--space-s);
+    left: var(--space-s);
+}
+
+
+/* 4. HERO */
+
 .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    align-items: center;
+    gap: var(--space-l);
+    padding: clamp(1.5rem, 4vw, 3rem) var(--page-gutter);
     background-color: var(--color-soft-pink);
-    padding: var(--space-s);
+}
+
+.hero img {
+    width: min(100%, 310px);
+    aspect-ratio: 1;
     height: auto;
+    justify-self: center;
+    border-radius: 50% 50% 12px 12px;
+    object-fit: cover;
+    object-position: 70% 100%;
 }
 
 
-/* contect section & cards */
+/* 5. CONTENT SECTION AND CARDS */
 
 .content-section {
     display: flex;
     flex-direction: column;
-    padding: var(--space-s);
+    align-items: center;
+    gap: var(--space-l);
+    padding: var(--space-xl) var(--page-gutter);
+    background-color: var(--color-background);
 }
 
 .card-list {
     display: flex;
     flex-flow: column;
-    justify-items: center;
-    align-items: center;
-    gap: var(--space-s);
-    height: fit-content;
-    padding: var(--space-m);
-    gap: var(--space-m) 0;
+    align-items: stretch;
+    gap: var(--space-m);
+    width: min(100%, var(--content-max-width));
+    padding: 0;
 }
 
 .card {
-    padding: var(--space-m);
-    border: 1px solid #DED5CE;
-    border-radius: var(--card-radius);
+    width: 100%;
+    min-width: 0;
     min-height: 248px;
-    width: 280px;
+    padding: var(--space-m);
+    border: 1px solid var(--color-border);
+    border-radius: var(--card-radius);
+    background-color: var(--color-surface);
+    box-shadow: var(--card-shadow);
 }
 
-/* footer */
+
+/* 6. BUTTONS */
+
+.button {
+    display: inline-block;
+    margin: var(--space-s) var(--space-s) 0 0;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: var(--button-radius);
+    background-color: var(--color-terracotta);
+    color: var(--color-surface);
+    cursor: pointer;
+    transition:
+        background-color 180ms ease,
+        transform 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.button--primary {
+    background-color: #F6839C;
+    color: var(--color-surface);
+}
+
+.help-button {
+    position: fixed;
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    z-index: 100;
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--color-pink);
+    color: var(--color-surface);
+    box-shadow: var(--help-button-shadow);
+    cursor: pointer;
+    transition: transform 180ms ease;
+}
+
+
+/* 7. FOOTER */
 
 .site-footer {
-    background-color: var(--color-olive);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: var(--space-s);
     min-height: 60px;
+    padding: var(--space-m) var(--page-gutter);
+    background-color: var(--color-olive);
     color: var(--color-surface);
+    text-align: center;
 }
 
-/* help-button */
- .help-button {
-    position: fixed;
-    right: 38px;
-    bottom: 24px;
-    border-radius: 50%;
-    width: 58px;
-    height: 58px;
-    z-index: 100;
-    background-color:var(--color-pink);
-    color: var(--color-surface);
-    border:none;
- }
 
+/* 8. INTERACTIVE STATES */
 
-/* states */
-
-.skip-link:focus {
-    position: static;
+.nav-list a {
+    text-underline-offset: 6px;
+    transition: color 180ms ease;
 }
 
-.nav-list a,
 .nav-list a:visited {
-    text-decoration: none;
-    color: #f4f4f4;
+    color: var(--color-surface);
 }
 
 .nav-list a:hover,
-.nav-list a:focus {
+.nav-list a:focus-visible {
     text-decoration: underline;
-    text-underline-offset: 10px;
-    text-decoration-color: #FF4F91;
+    text-decoration-color: var(--color-pink);
+    text-decoration-thickness: 2px;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--color-pink);
+    outline-offset: 4px;
+}
+
+.button:hover {
+    box-shadow: var(--button-shadow);
+    transform: translateY(-2px);
+}
+
+.help-button:hover {
+    transform: scale(1.05);
+}
+
+.button:active,
+.help-button:active {
+    transform: scale(0.97);
 }
 
 
-/* transitions & keyframes */
+/* 9. RESPONSIVE LAYOUT */
 
-/* media queries */
-
-@media (min-width:768px) {
+@media (min-width: 768px) {
     .site-header {
-        flex-flow: row;
+        flex-flow: row nowrap;
         justify-content: space-between;
-        padding: var(--space-m) var(--space-xl);
+        padding-inline: var(--page-gutter);
     }
 
     .hero {
-        padding: var(--space-m) var(--space-xl);
-        height: 404px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-xxl);
+        min-height: 404px;
+        padding-inline: var(--page-gutter);
+    }
+
+    .hero img {
+        width: min(100%, 310px);
+        justify-self: center;
     }
 
     .content-section {
-        padding: var(--space-m) var(--space-xl);
+        padding-inline: var(--page-gutter);
     }
 
     .card-list {
-        display: flex;
         flex-flow: row wrap;
-
-       justify-content:space-evenly;
-
-       gap: var(--space-m);
+        justify-content: center;
+        gap: var(--space-l);
     }
 
     .card {
-        width: 280px;
-        height: 278px;
+        flex: 1 1 260px;
+        max-width: 280px;
+        min-height: 278px;
     }
-
 }
 
-/* reeduced motion */
 
+/* 10. REDUCED MOTION */
 
-/*  Можно ли сделать header min-height адартивным с помощью функции?*/
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
