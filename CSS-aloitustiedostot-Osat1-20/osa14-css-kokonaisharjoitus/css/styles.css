@@ -1,3 +1,247 @@
 /* CSS-kokonaisharjoitus, osa 14 */
 
-/* Aloita CSS:n kirjoittaminen tämän kommentin alta. */
+/* Rakenna design tokenit custom propertyillä ja hyödynnä var(), calc(), min(), max() sekä clamp() joustavissa mitoissa. */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&display=swap');
+
+
+/* general */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Baloo Bhaijaan 2", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    color: var(--color-text);
+    background-color: var(--color-background);
+    line-height: 1.5;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* design tokens */
+
+:root {
+
+    --color-background: #F8F4F1;
+    --color-surface: #FFF;
+    --color-text: #202328;
+    --color-text-secondary: #62656B;
+    --color-border: #DAD9D7;
+    --color-olive: #A0A58A;
+    --color-pink: #FF4F91;
+    --color-terracotta: #D88B84;
+    --color-soft-pink: #F9D9D5;
+
+    --font-size-base: 16px;
+
+    --card-radius: 10px;
+    --large-section-radius: 16px;
+    --button-radius: 999px;
+
+    --card-shadow: 0 4px 18px rgba(32, 35, 40, 0.04);
+    --button-shadow: 0 4px 12px rgba(255, 79, 145, 0.18);
+    --help-button-shadow: 0 8px 24px rgba(255, 79, 145, 0.25);
+
+    --space-s: 0.5rem;
+    /* 8px */
+    --space-m: 1rem;
+    /* 16px */
+    --space-l: 1.5rem;
+    /* 24px */
+    --space-xl: 2rem;
+    /* 32px */
+}
+
+/* typography */
+
+h1 {
+    font-size: clamp(2rem, 1.2rem + 2.5vw, 3.25rem);
+    font-weight: 600;
+}
+
+h2 {
+    font-size: clamp(1.75rem, 1.2rem + 1.5vw, 2.375rem);
+    font-weight: 600;
+}
+
+h3 {
+    font-size: clamp(1.25rem, 1rem + 0.6vw, 1.5rem);
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    list-style: none;
+}
+
+.brand {
+    font-size: clamp(1.3rem, 1rem + 1vw, 1.75rem);
+    font-weight: 600;
+    color: var(--color-surface);
+}
+
+.nav-list {
+    color: var(--color-surface);
+    font-weight: bolder;
+}
+
+button {
+    font: inherit;
+}
+
+/* header and navigation */
+.site-header {
+    background-color: var(--color-olive);
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60px;
+    gap: var(--space-s);
+    padding: var(--space-s);
+}
+
+
+.nav-list {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: var(--space-l);
+}
+
+.skip-link {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+}
+
+/* hero */
+.hero {
+    background-color: var(--color-soft-pink);
+    padding: var(--space-s);
+    height: auto;
+}
+
+
+/* contect section & cards */
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-s);
+}
+
+.card-list {
+    display: flex;
+    flex-flow: column;
+    justify-items: center;
+    align-items: center;
+    gap: var(--space-s);
+    height: fit-content;
+    padding: var(--space-m);
+    gap: var(--space-m) 0;
+}
+
+.card {
+    padding: var(--space-m);
+    border: 1px solid #DED5CE;
+    border-radius: var(--card-radius);
+    min-height: 248px;
+    width: 280px;
+}
+
+/* footer */
+
+.site-footer {
+    background-color: var(--color-olive);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-s);
+    min-height: 60px;
+    color: var(--color-surface);
+}
+
+/* help-button */
+ .help-button {
+    position: fixed;
+    right: 38px;
+    bottom: 24px;
+    border-radius: 50%;
+    width: 58px;
+    height: 58px;
+    z-index: 100;
+    background-color:var(--color-pink);
+    color: var(--color-surface);
+    border:none;
+ }
+
+
+/* states */
+
+.skip-link:focus {
+    position: static;
+}
+
+.nav-list a,
+.nav-list a:visited {
+    text-decoration: none;
+    color: #f4f4f4;
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-color: #FF4F91;
+}
+
+
+/* transitions & keyframes */
+
+/* media queries */
+
+@media (min-width:768px) {
+    .site-header {
+        flex-flow: row;
+        justify-content: space-between;
+        padding: var(--space-m) var(--space-xl);
+    }
+
+    .hero {
+        padding: var(--space-m) var(--space-xl);
+        height: 404px;
+    }
+
+    .content-section {
+        padding: var(--space-m) var(--space-xl);
+    }
+
+    .card-list {
+        display: flex;
+        flex-flow: row wrap;
+
+       justify-content:space-evenly;
+
+       gap: var(--space-m);
+    }
+
+    .card {
+        width: 280px;
+        height: 278px;
+    }
+
+}
+
+/* reeduced motion */
+
+
+/*  Можно ли сделать header min-height адартивным с помощью функции?*/
